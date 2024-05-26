@@ -7,11 +7,13 @@ interface InputsType {
   email: string;
   password: string;
 }
+interface ErrorType {
+  FirstName: boolean;
+  LastName: boolean;
+  email: boolean;
+  password: boolean;
+}
 function Inputs() {
-  const handlesumbit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-
   const [inputvalue, setinputvalue] = useState<InputsType>({
     FirstName: "",
     LastName: "",
@@ -20,17 +22,35 @@ function Inputs() {
   });
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    // name == "FirstName" && setError.FirstName(true);
+    // name == "LastName" && setError.LastName(true);
+    // name == "email" && setError.email(true);
+    // name == "password" && setError.password(true);
     setinputvalue({
       ...inputvalue,
       [name]: value,
     });
   };
-  const [error, seterror] = useState({
+  const handlesumbit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const newErrorState: ErrorType = {
+      FirstName: !inputvalue.FirstName,
+      LastName: !inputvalue.LastName,
+      email: !inputvalue.email,
+      password: !inputvalue.password,
+    };
+
+    setError(newErrorState);
+  };
+
+  const [error, setError] = useState<ErrorType>({
     FirstName: false,
     LastName: false,
     email: false,
     password: false,
   });
+
   return (
     <MainInputs>
       <div className="box">
@@ -46,26 +66,39 @@ function Inputs() {
           placeholder="First Name"
           onChange={handleChange}
         />
+        {error.FirstName && (
+          <span className="error">Please enter your first name.</span>
+        )}
+
         <StyledInput
           name="LastName"
           value={inputvalue.LastName}
           placeholder="Last Name"
           onChange={handleChange}
         />
+        {error.LastName && (
+          <span className="error">Please enter your first name.</span>
+        )}
         <StyledInput
           name="email"
           value={inputvalue.email}
           placeholder="Email "
           onChange={handleChange}
         />
+        {error.email && (
+          <span className="error">Please enter your first name.</span>
+        )}
         <StyledInput
           name="password"
+          type="password"
           value={inputvalue.password}
           placeholder="Password"
           onChange={handleChange}
         />
-        <button>
-          {" "}
+        {error.password && (
+          <span className="error">Please enter your first name.</span>
+        )}
+        <button type="submit">
           <p>CLAIM YOUR FREE TRIAL</p>
         </button>
       </StyledForm>
@@ -112,6 +145,16 @@ const MainInputs = styled.div`
     line-height: 26px;
     letter-spacing: 0.268px;
   }
+  .error {
+    all: unset;
+    color: #ff7979;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+  }
 `;
 
 const StyledForm = styled.form`
@@ -154,6 +197,7 @@ const StyledInput = styled.input`
   padding: 19px;
 
   background: #fff;
+
   @media (min-width: 1440px) {
     width: 400px;
   }
