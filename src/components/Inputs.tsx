@@ -62,6 +62,7 @@ function Inputs() {
       <StyledForm onSubmit={handlesumbit}>
         <StyledInput
           name="FirstName"
+          hasError={error.FirstName}
           value={inputvalue.FirstName}
           placeholder="First Name"
           onChange={handleChange}
@@ -72,6 +73,7 @@ function Inputs() {
 
         <StyledInput
           name="LastName"
+          hasError={error.LastName}
           value={inputvalue.LastName}
           placeholder="Last Name"
           onChange={handleChange}
@@ -82,6 +84,7 @@ function Inputs() {
         <StyledInput
           name="email"
           value={inputvalue.email}
+          hasError={error.email}
           placeholder="Email "
           onChange={handleChange}
         />
@@ -91,6 +94,7 @@ function Inputs() {
         <StyledInput
           name="password"
           type="password"
+          hasError={error.password}
           value={inputvalue.password}
           placeholder="Password"
           onChange={handleChange}
@@ -154,6 +158,7 @@ const MainInputs = styled.div`
     font-style: italic;
     font-weight: 500;
     line-height: normal;
+    margin-top: -16px;
   }
 `;
 
@@ -167,13 +172,15 @@ const StyledForm = styled.form`
   text-align: center;
   border-radius: 10px;
   background: #fff;
+  width: 327px;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
   @media (min-width: 1440px) {
     padding: 70px;
+    max-width: 540px;
+    width: 540px;
   }
   button {
-    width: 279px;
-    padding: 20px;
+    padding: 18px;
     border-radius: 5px;
     background: #38cc8b;
     box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.09) inset;
@@ -191,11 +198,10 @@ const StyledForm = styled.form`
     }
   }
 `;
-const StyledInput = styled.input`
+const StyledInput = styled.input<{ hasError: boolean }>`
   border-radius: 5px;
-  border: 1px solid #dedede;
+  border: 1px solid ${(props) => (props.hasError ? "red" : "#dedede")};
   padding: 19px;
-
   background: #fff;
 
   @media (min-width: 1440px) {
