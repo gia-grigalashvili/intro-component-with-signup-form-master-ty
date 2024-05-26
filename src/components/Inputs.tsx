@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 function Inputs() {
+  const handlesumbit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
   return (
     <MainInputs>
       <div className="box">
@@ -9,7 +12,7 @@ function Inputs() {
         </p>
       </div>
 
-      <StyledForm action="">
+      <StyledForm onSubmit={handlesumbit}>
         <StyledInput placeholder="First Name" />
         <StyledInput placeholder="Last Name" />
         <StyledInput placeholder="Email Address" />
@@ -92,6 +95,10 @@ const StyledForm = styled.form`
     font-weight: 600;
     border: none;
     letter-spacing: 1px;
+    cursor: pointer;
+    @media (min-width: 1440px) {
+      width: 400px;
+    }
   }
 `;
 const StyledInput = styled.input`

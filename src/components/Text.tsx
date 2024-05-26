@@ -24,8 +24,7 @@ const Textdiv = styled.div`
   }
   h1 {
     color: #fff;
-    text-align: center;
-    font-family: Poppins;
+
     font-size: 28px;
     font-style: normal;
     font-weight: 700;
@@ -42,8 +41,7 @@ const Textdiv = styled.div`
   }
   p {
     color: #fff;
-    text-align: center;
-    font-family: Poppins;
+
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
