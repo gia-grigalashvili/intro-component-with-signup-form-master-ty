@@ -87,11 +87,9 @@ const StyledForm = styled.form`
   }
 `;
 const StyledInput = styled.input`
-  height: 56px;
-  width: 279px;
   border-radius: 5px;
   border: 1px solid #dedede;
-
+  padding: 19px;
   background: #fff;
 `;
 export default Inputs;

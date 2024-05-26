@@ -16,5 +16,9 @@ function App() {
 const Maindiv = styled.div`
   display: flex;
   flex-direction: column;
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    padding: 20px;
+  }
 `;
 export default App;

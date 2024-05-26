@@ -18,6 +18,10 @@ const Textdiv = styled.div`
   align-items: center;
   padding: 30px;
   gap: 16px;
+
+  @media (min-width: 1440px) {
+    width: 520px;
+  }
   h1 {
     color: #fff;
     text-align: center;
@@ -27,6 +31,14 @@ const Textdiv = styled.div`
     font-weight: 700;
     line-height: 36px; /* 128.571% */
     letter-spacing: -0.292px;
+    @media (min-width: 1440px) {
+      color: #fff;
+      font-family: Poppins;
+      font-size: 50px;
+
+      font-weight: 700;
+      line-height: 55px; /* 110% */
+    }
   }
   p {
     color: #fff;
