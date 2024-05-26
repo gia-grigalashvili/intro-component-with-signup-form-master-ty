@@ -17,7 +17,8 @@ const Textdiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  padding: 30px;
+  gap: 16px;
   h1 {
     color: #fff;
     text-align: center;
