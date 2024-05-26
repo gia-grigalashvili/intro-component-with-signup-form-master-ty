@@ -1,9 +1,31 @@
+import { useState } from "react";
 import styled from "styled-components";
 
+interface InputsType {
+  FirstName: string;
+  LastName: string;
+  email: string;
+  password: string;
+}
 function Inputs() {
   const handlesumbit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
+
+  const [inputvalue, setinputvalue] = useState<InputsType>({
+    FirstName: "",
+    LastName: "",
+    email: "",
+    password: "",
+  });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setinputvalue({
+      ...inputvalue,
+      [name]: value,
+    });
+  };
+
   return (
     <MainInputs>
       <div className="box">
@@ -13,10 +35,30 @@ function Inputs() {
       </div>
 
       <StyledForm onSubmit={handlesumbit}>
-        <StyledInput placeholder="First Name" />
-        <StyledInput placeholder="Last Name" />
-        <StyledInput placeholder="Email Address" />
-        <StyledInput placeholder="Password" />
+        <StyledInput
+          name="FirstName"
+          value={inputvalue.FirstName}
+          placeholder="First Name"
+          onChange={handleChange}
+        />
+        <StyledInput
+          name="LastName"
+          value={inputvalue.LastName}
+          placeholder="Last Name"
+          onChange={handleChange}
+        />
+        <StyledInput
+          name="email"
+          value={inputvalue.email}
+          placeholder="Email "
+          onChange={handleChange}
+        />
+        <StyledInput
+          name="password"
+          value={inputvalue.password}
+          placeholder="Password"
+          onChange={handleChange}
+        />
         <button>
           {" "}
           <p>CLAIM YOUR FREE TRIAL</p>
