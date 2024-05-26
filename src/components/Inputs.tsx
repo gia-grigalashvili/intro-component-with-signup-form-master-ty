@@ -25,7 +25,12 @@ function Inputs() {
       [name]: value,
     });
   };
-
+  const [error, seterror] = useState({
+    FirstName: false,
+    LastName: false,
+    email: false,
+    password: false,
+  });
   return (
     <MainInputs>
       <div className="box">
