@@ -9,7 +9,16 @@ function Inputs() {
         </p>
       </div>
 
-      <StyledForm action=""></StyledForm>
+      <StyledForm action="">
+        <StyledInput placeholder="First Name" />
+        <StyledInput placeholder="Last Name" />
+        <StyledInput placeholder="Email Address" />
+        <StyledInput placeholder="Password" />
+        <button>
+          {" "}
+          <p>CLAIM YOUR FREE TRIAL</p>
+        </button>
+      </StyledForm>
     </MainInputs>
   );
 }
@@ -27,6 +36,7 @@ const MainInputs = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 40px;
     border-radius: 10px;
     background: #5e54a4;
@@ -52,11 +62,36 @@ const MainInputs = styled.div`
 const StyledForm = styled.form`
   display: flex;
   gap: 20px;
+  margin-top: 20px;
+  flex-direction: column;
   padding: 40px;
   flex-shrink: 0;
+  text-align: center;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
+  button {
+    width: 279px;
+    padding: 20px;
+    border-radius: 5px;
+    background: #38cc8b;
+    box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.09) inset;
+    color: #fff;
+    text-align: center;
+
+    font-size: 15px;
+
+    font-weight: 600;
+    border: none;
+    letter-spacing: 1px;
+  }
 `;
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  height: 56px;
+  width: 279px;
+  border-radius: 5px;
+  border: 1px solid #dedede;
+
+  background: #fff;
+`;
 export default Inputs;
