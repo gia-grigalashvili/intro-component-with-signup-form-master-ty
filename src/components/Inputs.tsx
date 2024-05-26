@@ -22,10 +22,10 @@ function Inputs() {
   });
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    // name == "FirstName" && setError.FirstName(true);
-    // name == "LastName" && setError.LastName(true);
-    // name == "email" && setError.email(true);
-    // name == "password" && setError.password(true);
+    // name == "FirstName" && setError.FirstName(false);
+    // name == "LastName" && setError.LastName(false);
+    // name == "email" && setError.email(false);
+    // name == "password" && setError.password(false);
     setinputvalue({
       ...inputvalue,
       [name]: value,
@@ -200,9 +200,13 @@ const StyledForm = styled.form`
 `;
 const StyledInput = styled.input<{ hasError: boolean }>`
   border-radius: 5px;
-  border: 1px solid ${(props) => (props.hasError ? "red" : "#dedede")};
+  border: 1px solid ${(props) => (props.hasError ? "red" : "#DEDEDE")};
   padding: 19px;
   background: #fff;
+  background-image: ${(props) =>
+    props.hasError ? "url(/public/images/icon-error.svg)" : "none"};
+  background-repeat: no-repeat;
+  background-position: right 10px center;
 
   @media (min-width: 1440px) {
     width: 400px;

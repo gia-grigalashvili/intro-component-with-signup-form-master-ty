@@ -15,12 +15,14 @@ const Textdiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   padding: 30px;
   gap: 16px;
 
   @media (min-width: 1440px) {
     width: 520px;
+    text-align: unset;
   }
   h1 {
     color: #fff;
