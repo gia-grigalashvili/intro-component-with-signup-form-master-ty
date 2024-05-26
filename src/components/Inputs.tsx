@@ -47,6 +47,11 @@ const MainInputs = styled.div`
     font-size: 15px;
 
     font-weight: 700;
+
+    @media (min-width: 1440px) {
+      width: 540px;
+      padding: 0px;
+    }
   }
   span {
     color: #fff;
@@ -70,6 +75,9 @@ const StyledForm = styled.form`
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.15);
+  @media (min-width: 1440px) {
+    padding: 70px;
+  }
   button {
     width: 279px;
     padding: 20px;
@@ -90,6 +98,10 @@ const StyledInput = styled.input`
   border-radius: 5px;
   border: 1px solid #dedede;
   padding: 19px;
+
   background: #fff;
+  @media (min-width: 1440px) {
+    width: 400px;
+  }
 `;
 export default Inputs;

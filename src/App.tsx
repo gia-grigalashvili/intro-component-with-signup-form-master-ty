@@ -19,6 +19,7 @@ const Maindiv = styled.div`
   @media (min-width: 1440px) {
     flex-direction: row;
     padding: 20px;
+    gap: 50px;
   }
 `;
 export default App;
